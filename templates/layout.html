@@ -1,14 +1,17 @@
 <!doctype html>
-<title>Flaskr</title>
+<title>소프트웨어특성화대학원 익명게시판(GSSAnnonymous.com)</title>
 <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <div class=page>
-  	<h1>Flaskr</h1>
+  	<h1><a href="{{ url_for('show_entries') }}">소프트웨어특성화대학원 익명게시판</a></h1>
   	<div class=metanav>
-	  {% if not session.logged_in %}
-	    	<a href="{{ url_for('login') }}">log in</a>
-	  {% else %}
-	    	<a href="{{ url_for('logout') }}">log out</a>
-	  {% endif %}
+	  <a href="{{ url_for('board1') }}">카더라(괴소문)</a>
+	  <a href="{{ url_for('board2') }}">남자와여자</a>
+	  	{% if not session.logged_in %}
+	  	 	   	<a href="{{ url_for('login') }}">admin</a>
+	  	 {% else %}
+	  	 	   	<a href="{{ url_for('logout') }}">log out</a>
+	  	 {% endif %}
 	</div>
 		{% for message in get_flashed_messages() %}
 	    		<div class=flash>{{ message }}</div>

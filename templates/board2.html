@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+{% block body %}
+    <form action="{{ url_for('add2') }}" method=post class=add-entry>
+      <dl>
+        <dt>제목:
+        <dd><input type=text size=30 name=title>
+        <dt>내용:
+        <dd><textarea name=text rows=5 cols=40></textarea>
+        <dd><input type=submit value=Share>
+      </dl>
+    </form>
+  <ul class=entries>
+  {% for write in writings2 %}
+    <li><h2>{{ write.title }}</h2>{{ write.text|safe }}
+  {% else %}
+    <li><em>no entry</em>
+  {% endfor %}
+  </ul>
+{% endblock %}

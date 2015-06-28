@@ -1,0 +1,12 @@
+{
+	"folders":
+	[
+		{
+			"path": "."
+		}
+	],
+
+	"settings" : {
+		"xdebug" : {"url":"http://localhost:5000"}
+	}
+}
