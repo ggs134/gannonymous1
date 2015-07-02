@@ -137,4 +137,4 @@ def board2():
 	return render_template('board2.html', writings2=writings2)
 
 if __name__=='__main__':
-	app.run()
+	app.run(host='0.0.0.0')
