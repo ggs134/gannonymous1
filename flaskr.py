@@ -45,7 +45,7 @@ def show_entries():
 #	cur=g.db.execute('select title, text from entries order by id desc')
 	con=connect_db()
 	cursor=con.cursor()
-	cursor.execute('select title, text from entries order by id desc')
+	cursor.execute('select title, text from entries order by id asc')
 	entries=[dict(title=row[0], text=row[1]) for row in cursor.fetchall()]
 	cursor.close()
 	con.close()
