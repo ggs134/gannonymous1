@@ -1,7 +1,7 @@
-
+#-*-coding:utf-8-*-
 # all the import
 from __future__ import with_statement
-import sqlite3
+#import sqlite3
 import MySQLdb as mariadb
 from flask import Flask, request, session, g, redirect, url_for, abort, render_template, flash
 from contextlib import closing
@@ -57,7 +57,7 @@ def add_entry():
 	# 	abort(401)
 	con=connect_db()
 	cursor=con.cursor()
-	cursor.execute('insert into entries (title, text) values (%s,%s)',[request.form['title'], request.form['text']])
+	cursor.execute('insert into entries (title, text) values (%s,%s)',[request.form['title'].encode('utf-8'), request.form['text'].encode('utf-8')])
 	con.commit()
 	cursor.close()
 	con.close()
@@ -72,7 +72,7 @@ def add1():
 	# 	abort(401)
 	con=connect_db()
 	cursor=con.cursor()
-	cursor.execute('insert into board1 (title, text) values (%s,%s)',[request.form['title'], request.form['text']])
+	cursor.execute('insert into board1 (title, text) values (%s,%s)',[request.form['title'].encode('utf-8'), request.form['text'].encode('utf-8')])
 	con.commit()
 	cursor.close()
 	con.close()
@@ -87,7 +87,7 @@ def add2():
 	# 	abort(401)
 	con=connect_db()
 	cursor=con.cursor()
-	cursor.execute('insert into board2 (title, text) values (%s,%s)',[request.form['title'], request.form['text']])
+	cursor.execute('insert into board2 (title, text) values (%s,%s)',[request.form['title'].encode('utf-8'), request.form['text'].encode('utf-8')])
 	con.commit()
 	cursor.close()
 	con.close()
