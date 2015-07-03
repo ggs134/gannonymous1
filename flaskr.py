@@ -63,7 +63,7 @@ def add_entry():
 	con.close()
 #	con.cursor().execute('insert into entries (title, text) values (?,?)',[request.form['title'], request.form['text']])
 #	con.commit()
-	flash('posted!')
+	flash('글이 게시되었어!')
 	return redirect(url_for('show_entries'))
 
 @app.route('/add1', methods=['POST'])
@@ -78,7 +78,7 @@ def add1():
 	con.close()
 #	con.cursor().execute('insert into entries (title, text) values (?,?)',[request.form['title'], request.form['text']])
 #	con.commit()
-	flash('posted!')
+	flash('글이 올라갔어!')
 	return redirect(url_for('board1'))
 
 @app.route('/add2', methods=['POST'])
@@ -93,7 +93,7 @@ def add2():
 	con.close()
 #	con.cursor().execute('insert into entries (title, text) values (?,?)',[request.form['title'], request.form['text']])
 #	con.commit()
-	flash('posted!')
+	flash('글이 올라갔어!')
 	return redirect(url_for('board2'))
 
 @app.route('/login', methods=['GET','POST'])
@@ -106,14 +106,14 @@ def login():
 			error='invalid password'
 		else:
 			session['logged_in']=True
-			flash('You were logged in')
+			flash('로그인 되었습니다.')
 			return redirect(url_for('show_entries'))
 	return render_template('login.html', error=error)
 	
 @app.route('/logout')
 def logout():
 	session.pop('logged_in', None)
-	flash('You were logged out')
+	flash('로그아웃되었습니다.')
 	return redirect(url_for('show_entries'))
 
 @app.route('/board1')
