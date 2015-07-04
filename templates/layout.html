@@ -1,24 +1,43 @@
 <!doctype html>
-<title>소프트웨어특성화대학원 익명게시판(GSSAnnonymous.com)</title>
-<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<div class=page>
-  	<h1><a href="{{ url_for('show_entries') }}">소프트웨어특성화대학원 익명게시판</a></h1>
-  	<div class=metanav>
-	  <a href="{{ url_for('board1') }}">카더라(괴소문)</a>
-	  <a href="{{ url_for('board2') }}">남자와여자</a>
-	  	{% if not session.logged_in %}
-	  	 	   	<a href="{{ url_for('login') }}">admin</a>
-	  	 {% else %}
-	  	 	   	<a href="{{ url_for('logout') }}">log out</a>
-	  	 {% endif %}
-	</div>
-		{% for message in get_flashed_messages() %}
-	    		<div class=flash>{{ message }}</div>
-	  	{% endfor %}
-  {% block body %}{% endblock %}
+<html lang=ko>
+<head>
+	<title>소프트웨어특성화대학원 익명게시판(GSSAnnonymous.com)</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link href="{{url_for('static', filename='css/bootstrap.min.css')}}" rel=stylesheet>
+</head>
+<nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="{{ url_for('show_entries') }}">소프트웨어특성화대학원 익명게시판</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="{{ url_for('board1') }}">카더라(괴소문)</a></li>
+            <li><a href="{{ url_for('board2') }}">남자와여자</a></li>
+            {% if not session.logged_in %}
+	  	<li><a href="{{ url_for('login') }}">관리자</a></li>
+	  {% else %}
+	  	<li><a href="{{ url_for('logout') }}">로그아웃</a></li>
+	  {% endif %}
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+ </nav>
+
+
+
+<div class="container">{% block body %}{% endblock %}</div>
 <a id="creator">This service is created by <b>JSH</b> </a>
-</div>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -27,5 +46,9 @@
 
   ga('create', 'UA-64724093-1', 'auto');
   ga('send', 'pageview');
-
 </script>
+
+<!-- jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요합니다) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<!-- 모든 컴파일된 플러그인을 포함합니다 (아래), 원하지 않는다면 필요한 각각의 파일을 포함하세요 -->
+<script src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>
