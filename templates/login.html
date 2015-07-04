@@ -2,7 +2,6 @@
 {% block body %}
 
 <!-- 로그인폼 -->
-<br><br><br>
 {% if error %}<p class=error><strong>Error:</strong> {{ error }}{% endif %}
     <div class="well bs-component">
               <form class="form-horizontal" action="{{ url_for('login') }}" method=post>

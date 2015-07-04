@@ -1,7 +1,6 @@
 {% extends "layout.html" %}
 {% block body %}
 <!-- 글남기기폼 -->
-<br><br><br>
       {% if session.logged_in %}
     <div class="well bs-component">
               <form class="form-horizontal" action="{{ url_for('add_entry') }}" method=post>
