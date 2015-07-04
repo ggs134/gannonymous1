@@ -25,15 +25,17 @@
                   <div class="form-group">
                     <div class="col-lg-10 col-lg-offset-2">
                       <button type="submit" class="btn btn-primary">공유하기</button>
-                      <button type="reset" class="btn btn-default">지우기</button>
                     </div>
                   </div>
 
                 </fieldset>
               </form>
-            <div id="source-button" class="btn btn-primary btn-xs" style="display: block;">&lt; &gt;</div></div>
+            
+            </div>
 
 <!-- 글목록 -->
+<legend>글목록</legend>
+<div class="well">
  {% for entry in writings2 %}
 <div class="row">
           <div class="col-lg-4">
@@ -42,6 +44,7 @@
               <p>{{ entry.text|safe }}</p>
             </div>
           </div>
+</div>
 </div>
 {% endfor %}
 

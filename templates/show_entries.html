@@ -50,13 +50,15 @@
 
 <!-- 공지사항 -->
  {% for entry in entries %}
-<div class="row">
-          <div class="col-lg-4">
-            <div class="bs-component">
-              <h2>{{ entry.title }}</h2>
-              <p>{{ entry.text|safe }}</p>
+ <div class="well">
+  <div class="row">
+            <div class="col-lg-4">
+              <div class="bs-component">
+                <h2>{{ entry.title }}</h2>
+                <p>{{ entry.text|safe }}</p>
+              </div>
             </div>
-          </div>
+  </div>
 </div>
 {% endfor %}
 
