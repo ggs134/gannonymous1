@@ -35,6 +35,27 @@
 
 <!-- 글목록 -->
 <legend>글목록</legend>
+
+  <!-- 페이지목록 -->
+  <nav>
+    <ul class="pagination">
+      <li>
+        <a href="#" aria-label="Previous">
+          <span aria-hidden="true">&laquo;</span>
+        </a>
+      </li>
+        {% for i in range(1,total_page_number) %}
+        <li><a href="{{url_for('board2',page_number=i)}}">{{i}}</a></li>
+        {% endfor%}
+
+      <li>
+        <a href="#" aria-label="Next">
+          <span aria-hidden="true">&raquo;</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
  {% for entry in writings2 %}
  <div class="well">
 <div class="row">

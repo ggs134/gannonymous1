@@ -20,13 +20,14 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="{{ url_for('show_entries') }}">SW특성화대학원 익명게시판</a>
+      <a class="navbar-brand" href='{{ url_for('show_entries') }}'>SW특성화대학원 익명게시판</a>
     </div>
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="{{ url_for('board1') }}">카더라(괴소문)</a></li>
-            <li><a href="{{ url_for('board2') }}">남자와여자</a></li>
+        <li><a href='{{ url_for('board1', page_number=1) }}'>카더라(괴소문)</a></li>
+            <li><a href="{{ url_for('board2', page_number=1) }}">남자와여자</a></li>
+            <li><a href="#top">맨 위로</a></li>
             {% if not session.logged_in %}
             <li><a href="{{ url_for('login') }}">관리자</a></li>
             {% else %}
