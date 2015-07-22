@@ -27,7 +27,8 @@
       <ul class="nav navbar-nav">
         <li><a href='{{ url_for('board1', page_number=1) }}'>카더라(괴소문)</a></li>
             <li><a href="{{ url_for('board2', page_number=1) }}">남자와여자</a></li>
-            <li><a href="#top">맨 위로</a></li>
+            <li><a href="https://www.google.com/calendar/embed?src=ea9v370jbjje26te9erml9j7p8%40group.calendar.google.com&ctz=Asia/Seoul" target=_blank>306예약정보</a></li>
+            <li><a href="#top">맨 위로</a></li> 
             {% if not session.logged_in %}
             <li><a href="{{ url_for('login') }}">관리자</a></li>
             {% else %}
